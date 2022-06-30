@@ -74,16 +74,21 @@ public class ProcessoDTO {
         dto.setDtAbertura(processo.getDtAbertura());
         dto.setNumProcesso(processo.getNumProcesso());
         dto.setAnoProcesso(processo.getAnoProcesso());
-
+        dto.setModalidade(processo.getModalidade());
+        dto.setEntidade(processo.getEntidade());
+        dto.setSitucao(processo.getSitucao());
         return dto;
     }
 
-    public static Responsavel fromDTO(ResponsavelDTO dto){
-        Responsavel entity = new Responsavel();
+    public static Processo fromDTO(ProcessoDTO dto){
+        Processo entity = new Processo();
         entity.setId(dto.getId());
-        entity.setNome(dto.getNome());
-        entity.setUsuarioTce(dto.getUsuarioTce());
-        entity.setSenhaTce(dto.getSenhaTce());
+        entity.setDtAbertura(dto.getDtAbertura());
+        entity.setNumProcesso(dto.getNumProcesso());
+        entity.setAnoProcesso(dto.getAnoProcesso());
+        entity.setModalidade(dto.getModalidade());
+        entity.setEntidade(dto.getEntidade());
+        entity.setSitucao(dto.getSitucao());
         return entity;
     }
 }
