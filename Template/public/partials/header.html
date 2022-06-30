@@ -1,0 +1,44 @@
+<nav ng-controller="HeaderCtrl" class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target="#navbar" class="navbar-toggle collapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+            <a href="/home" class="navbar-brand" style="padding-top: 30px; font-size: 40px;">Agenda de Licitações</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li ng-class="{ active: isActive('/home')}"><a href="/home">Home</a></li>
+                 <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" 
+                        aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/cliente"><i class="fa fa-users" aria-hidden="true"></i>  Clientes</a></li>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/veiculo"><i class="fa fa-car" aria-hidden="true"></i>  Veiculos</a></li>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/locacao"><i class="fa fa-sitemap" aria-hidden="true"></i>  Locações</a></li>
+                        <hr>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/marca"><i class="fa fa-ticket" aria-hidden="true"></i>  Marcas</a></li>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/modelo"><i class="fa fa-list" aria-hidden="true"></i>  Modelos</a></li>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/opcional"><i class="fa fa-list-ol" aria-hidden="true"></i>  Opcionais</a></li>
+                        <hr>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/cidade"><i class="fa fa-map" aria-hidden="true"></i>  Cidades</a></li>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/estado"><i class="fa fa-map" aria-hidden="true"></i>  Estados</a></li>
+                        <li style="height:80px;"><a style="height:80px; font-size: 24px; padding-top: 25px;" 
+                            href="/pais"><i class="fa fa-map" aria-hidden="true"></i>  Paises</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,129 @@
+<div>
+    <div ng-controller="ModeloFormController as vm">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="container">
+                        <h2>{{vm.titulo}}</h2>
+                        <br>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="nome" class="col-sm-2">Nome</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.cadastro.nome" id="nome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="motor" class="col-sm-2">Motor</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.cadastro.motor" id="motor">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hp" class="col-sm-2">HP</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.cadastro.hp" id="hp">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cilindradas" class="col-sm-2">Cilindradas</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.cadastro.cilindradas" id="cilindradas">
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="marca" class="col-sm-2">marca</label>
+                                <div class="col-sm-8" ng-controller="MarcaListController as estVM">
+                                    <select name="marca" ng-model="vm.cadastro.marca.id" class="form-control" id="marca">
+                                        <option ng-repeat="item in estVM.itens" value={{item.id}}>{{item.id}} - {{item.nome}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="text-right col-sm-10">
+                                    <button data-toggle="modal" data-target="#opcionalForm" type="button" class="btn btn-default btn-md" ng-click="vm.adicionarItem()">
+                                        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
+                                        <span>Opcional</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group" >
+                                <div class="text-right col-sm-10">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-condensed">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width: 40%;">Nome</th>
+                                                    <th style="width: 40%;">Descrição </th>
+                                                    <th style="width: 20%;"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr ng-repeat="item in vm.cadastro.opcionais">
+                                                    <td style="text-align: left;width: 30%;">{{item.nome}}</td>
+                                                    <td style="text-align: right;width: 20%;">{{item.descricao}}</td>
+                                                    <td class="text-right" style="width: 20%;">
+                                                        <button data-toggle="modal" data-target="#opcionalForm" type="button" class="btn btn-link" ng-click="vm.editarItem(item)">
+                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                        </button>
+                                                        <button type="button" class="btn btn-link" confirmed-click="vm.removerItem(item)" ng-confirm-click="Deseja excluir o item?">
+                                                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-right col-sm-10">
+                                <a href="/modelo" class="btn btn-default btn-lg">Cancelar</a>
+                                <button ng-click="vm.salvar()" type="button" class="btn btn-success btn-lg">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="opcionalForm" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Adicionando Opcional</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body">
+                            <form class="form-horizontal">
+                                <div class="row" style="margin-top: -2%;">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label for="opcional" class="col-sm-2">Opcional</label>
+                                                <div class="col-sm-8" ng-controller="OpcionalListController as prodVm">
+                                                    <select name="opcional" ng-model="vm.item.opcional.id" class="form-control" id="opcional">
+                                                        <option ng-repeat="item in prodVm.itens"
+                                                            value="{{item.id}}">{{item.nome}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default btn-lg" data-dismiss="modal">Cancelar</button>
+                        <button type="button" ng-click="vm.salvarItem()" class="btn btn-success btn-lg" data-dismiss="modal">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+

@@ -1,0 +1,70 @@
+<div>
+    <div ng-controller="VeiculoFormController as vm">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="container">
+                        <h2>{{vm.titulo}}</h2>
+                        <br>
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label for="placa" class="col-sm-2">Placa</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.cadastro.placa" id="placa">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="renavam" class="col-sm-2">Renavam</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control text-left" ng-model="vm.cadastro.renavam" id="renavam">
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="modelo" class="col-sm-2">Modelo</label>
+                                <div class="col-sm-8" ng-controller="ModeloListController as estVM">
+                                    <select name="cidade" ng-model="vm.cadastro.modelo.id" class="form-control" id="modelo">
+                                        <option ng-repeat="item in estVM.itens" value={{item.id}}>{{item.id}} - {{item.nome}}</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="cor" class="col-sm-2">COR</label>
+                                <div class="col-sm-8">
+                                    <select name="cor" class="form-control" id="cor" ng-model="vm.cadastro.cor">
+                                        <option value="AZUL">AZUL</option>
+                                        <option value="VERMELHO">VERMELHO</option>
+                                        <option value="PRETO">PRETO</option>
+                                        <option value="AMARELO">AMARELO</option>
+                                        <option value="ROSA">ROSA</option>
+                                        <option value="BRANCO">BRANCO</option>
+                                        <option value="CINZA">CINZA</option>
+                                        <option value="VERDE">VERDE</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="tipo" class="col-sm-2">TIPO</label>
+                                <div class="col-sm-8">
+                                    <select name="cor" class="form-control" id="cor" ng-model="vm.cadastro.tipo">
+                                        <option value="PASSEIO">PASSEIO</option>
+                                        <option value="MOTOCICLETA">MOTOCICLETA</option>
+                                        <option value="UTILITARIO">UTILITARIO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="text-right col-sm-10">
+                                <a href="/veiculo" class="btn btn-default btn-lg">Cancelar</a>
+                                <button ng-click="vm.salvar()" type="button" class="btn btn-success btn-lg">Salvar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
