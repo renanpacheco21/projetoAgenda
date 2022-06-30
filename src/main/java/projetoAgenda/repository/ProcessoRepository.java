@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import projetoAgenda.model.Processo;
 
 @Repository
-interface ResponsavelRepository extends JpaRepository<Processo, Long>, QuerydslPredicateExecutor<Processo> {
+interface ProcessoRepository extends JpaRepository<Processo, Long>, QuerydslPredicateExecutor<Processo> {
 
 }
