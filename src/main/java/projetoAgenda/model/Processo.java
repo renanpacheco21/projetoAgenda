@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(schema = "curso",name = "responsavel")
+@Table(schema = "curso",name = "processo")
 @Entity
 public class Processo {
     @Id
@@ -23,6 +23,10 @@ public class Processo {
     private String entidade;
     @Column(name = "situacao")
     private String situcao;
+
+    public Processo() {
+    }
+
 
     public Long getId() {
         return id;
