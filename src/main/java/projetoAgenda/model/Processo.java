@@ -24,9 +24,19 @@ public class Processo {
     @Column(name = "situacao")
     private String situcao;
 
-    public Processo() {
+    public Processo(Long id, String dtAbertura, Integer numProcesso, Integer anoProcesso, String modalidade, String entidade, String situcao) {
+        this.id = id;
+        this.dtAbertura = dtAbertura;
+        this.numProcesso = numProcesso;
+        this.anoProcesso = anoProcesso;
+        this.modalidade = modalidade;
+        this.entidade = entidade;
+        this.situcao = situcao;
     }
 
+    public Processo() {
+
+    }
 
     public Long getId() {
         return id;

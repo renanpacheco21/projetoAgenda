@@ -42,19 +42,20 @@ public class ProcessoController {
         return ProcessoDTO.toDTO(repository.save(processo));
     }
 
-//    @PutMapping("/{id}")
-//    public ProcessoDTO update(@PathVariable(value = "id") Long responsavelId,
-//                                 @RequestBody Processo responsavel) throws EntityNotFoundException {
-//        Processo responsavelFind = repository.findById(responsavelId).orElseThrow(() -> new EntityNotFoundException("Responsável não encontrado com ID :: " +responsavelId));
-//        responsavelFind.setId(responsavel.getId());
-//        responsavelFind.setNome(responsavel.getNome());
-//        responsavelFind.setPopulacao(responsavel.getPopulacao());
-//        return ProcessoDTO.toDTO(repository.save(responsavelFind));
-//    }
+    @PutMapping("/{id}")
+    public ProcessoDTO update(@PathVariable(value = "id") Long processoId,
+                                 @RequestBody Processo processo) throws EntityNotFoundException {
+        Processo processoFind = repository.findById(processoId).orElseThrow(() -> new EntityNotFoundException("Processo não encontrado com ID: " + processoId));
+        processoFind.setId(processo.getId());
+        processoFind.setDtAbertura(processo.getDtAbertura());
+        processoFind.setModalidade(processo.getModalidade());
+        processoFind.setSitucao(processo.getSitucao());
+        return ProcessoDTO.toDTO(repository.save(processoFind));
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity delete(@PathVariable(value = "id") Long processoId) throws EntityNotFoundException{
-        Processo processoFind = repository.findById(processoId).orElseThrow(() -> new EntityNotFoundException("Processo não encontrado com o ID::" + processoId));
+        Processo processoFind = repository.findById(processoId).orElseThrow(() -> new EntityNotFoundException("Processo não encontrado com o ID:" + processoId));
         repository.delete(processoFind);
         return ResponseEntity.noContent().build();
     }
