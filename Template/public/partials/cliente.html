@@ -6,12 +6,12 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-sm-8">
-                                <h3>Cadastro de Clientes </h3>
+                                <h3>Cadastro de Licitações </h3>
                             </div>
                             <div class="col-sm-4">
-                                <a class="btn btn-default pull-right btn-lg" href="cliente/new">
+                                <a class="btn btn-default pull-right btn-lg" href="processo/new">
                                     <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-                                    <span>Nova Cliente</span>
+                                    <span>Novo Processo</span>
                                 </a>
                             </div>
                         </div>
@@ -30,12 +30,12 @@
                                 <tr ng-repeat="item in vm.itens">
                                     <td>{{item.nome}}</td>
                                     <td>
-                                        <a type="button" class="btn btn-primary btn-sm" ng-href="{{'/cliente/' + item.id}}">
+                                        <a type="button" class="btn btn-primary btn-sm" ng-href="{{'/processo/' + item.id}}">
                                             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
 
                                         <a type="button" class="btn btn-primary btn-sm" confirmed-click="vm.remover(item)" 
-                                        ng-confirm-click="Deseja excluir a cliente?">
+                                        ng-confirm-click="Deseja excluir o processo?">
                                             <i class="fa fa-trash-o" aria-hidden="true"></i>
                                         </a>
                                     </td>

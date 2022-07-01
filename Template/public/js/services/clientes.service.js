@@ -15,7 +15,7 @@
             remove: remove
         };
 
-        var URL = 'http://localhost:8080/api/clientes';
+        var URL = 'http://localhost:8080/api/processo';
 
         return service;
 

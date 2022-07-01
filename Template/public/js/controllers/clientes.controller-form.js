@@ -19,7 +19,7 @@
     ) {
         var vm = this;
         vm.cadastro = {};
-        vm.titulo = "Nova Cliente";
+        vm.titulo = "Novo Processo";
         vm.item = null;
         vm.salvar = salvar;
         vm.select = select;
@@ -30,15 +30,15 @@
             if ($routeParams.id) {
                 ClienteService.findById($routeParams.id).success(function (data) {
                     vm.cadastro = data;
-                    vm.titulo = "Editando Cliente";
+                    vm.titulo = "Editando Processo";
                 });
             }
         }
 
         function salvar() {
             ClienteService.save(vm.cadastro).success(function () {
-                $location.path("/cliente");
-                alert("Cliente cadastrada com sucesso!!");
+                $location.path("/processo");
+                alert("Processo cadastrado com sucesso!!");
             }).error(function (erro) {
                 alert(JSON.stringify(erro));
             });
