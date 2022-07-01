@@ -11,13 +11,13 @@ angular
                 templateUrl: "partials/home.html",
             })
             .when("/cliente", {
-                templateUrl: "partials/cliente.html",
+                templateUrl: "partials/processo.html",
             })
             .when("/cliente/:id", {
-                templateUrl: "partials/cliente-form.html",
+                templateUrl: "partials/processo-form.html",
             })
             .when("/cliente/new", {
-                templateUrl: "partials/cliente-form.html",
+                templateUrl: "partials/processo-form.html",
             })
             .otherwise({
                 templateUrl: "partials/404.html",

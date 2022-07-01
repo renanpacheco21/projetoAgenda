@@ -3,11 +3,11 @@
 
     angular
         .module('MyApp')
-        .factory('ClienteService', ClienteService);
+        .factory('ProcessoService', ProcessoService);
 
-    ClienteService.$inject = ['$http', '$window', '$rootScope'];
+    ProcessoService.$inject = ['$http', '$window', '$rootScope'];
 
-    function ClienteService($http, $window, $rootScope) {
+    function ProcessoService($http, $window, $rootScope) {
         var service = {
             find: find,
             findById: findById,

@@ -3,17 +3,17 @@
 
     angular
         .module("MyApp")
-        .controller("ClienteFormController", ClienteFormController);
+        .controller("ProcessoFormController", ProcessoFormController);
 
-    ClienteFormController.$inject = [
-        "ClienteService",
+        ProcessoFormController.$inject = [
+        "ProcessoService",
         "$location",
         "$routeParams",
         "$scope",
     ];
 
-    function ClienteFormController(
-        ClienteService,
+    function ProcessoFormController(
+        ProcessoService,
         $location,
         $routeParams
     ) {
@@ -28,7 +28,7 @@
 
         function activate() {
             if ($routeParams.id) {
-                ClienteService.findById($routeParams.id).success(function (data) {
+                ProcessoService.findById($routeParams.id).success(function (data) {
                     vm.cadastro = data;
                     vm.titulo = "Editando Processo";
                 });
@@ -36,7 +36,7 @@
         }
 
         function salvar() {
-            ClienteService.save(vm.cadastro).success(function () {
+            ProcessoService.save(vm.cadastro).success(function () {
                 $location.path("/processo");
                 alert("Processo cadastrado com sucesso!!");
             }).error(function (erro) {

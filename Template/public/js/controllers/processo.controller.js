@@ -3,11 +3,11 @@
 
     angular
         .module("MyApp")
-        .controller("ClienteListController", ClienteListController);
+        .controller("ProcessoListController", ProcessoListController);
 
-        ClienteListController.$inject = ["ClienteService"];
+        ProcessoListController.$inject = ["ProcessoService"];
 
-    function ClienteListController(ClienteService) {
+    function ProcessoListController(ProcessoService) {
         var vm = this;
 
         vm.item = null;
@@ -20,13 +20,13 @@
 
         function activate() {
             var query = vm.busca ? { $text: { $search: vm.busca } } : {};
-            ClienteService.find(query).then(function(result) {
+            ProcessoService.find(query).then(function(result) {
                 vm.itens = result.data;
             });
         }
 
         function remover(item) {
-            ClienteService.remove(item.id).success(function() {
+            ProcessoService.remove(item.id).success(function() {
                 activate();
             });
         }
