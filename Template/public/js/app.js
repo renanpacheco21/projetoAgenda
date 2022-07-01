@@ -10,13 +10,13 @@ angular
             .when("/home", {
                 templateUrl: "partials/home.html",
             })
-            .when("/cliente", {
+            .when("/processo", {
                 templateUrl: "partials/processo.html",
             })
-            .when("/cliente/:id", {
+            .when("/processo/:id", {
                 templateUrl: "partials/processo-form.html",
             })
-            .when("/cliente/new", {
+            .when("/processo/new", {
                 templateUrl: "partials/processo-form.html",
             })
             .otherwise({
